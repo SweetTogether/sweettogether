@@ -1,0 +1,42 @@
+﻿@page
+@model CardModel
+@{
+    ViewData["Title"] = "Your Card";
+    var name1 = Request.Query["name1"].ToString();
+    var name2 = Request.Query["name2"].ToString();
+    var mascot = Request.Query["mascot"].ToString();
+    var fact = Request.Query["fact"].ToString();
+    var phrase = Request.Query["phrase"].ToString();
+    var days = Request.Query["days"].ToString();
+    var duration = Request.Query["duration"].ToString();
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css" />
+<div class="container">
+    <div class="card" id="cardBox" style="background-color:@Model.Color">
+        <div id="cardContentToExport">
+            <div class="card-content centered-only">
+                <div class="names-display-wrapper">
+                    <h2 class="names-display">@name1 <span class="heart">❤️</span> @name2</h2>
+                </div>
+                <div class="left-section centered">
+                    <img src="@($"/img/mascot-{mascot}.png")" alt="mascot" class="mascot-image" />
+                    <p class="quote">@Model.MascotPhrase @Model.DateText!</p>
+                </div>
+                @if (Model.HasFact)
+                {
+                    <p class="cute-fact-text">@Model.TranslatedFact</p>
+                }
+                <p class="watermark">SweetTogether 💖</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls-wrapper">
+        <a class="button-group button-group-centered" href="/">
+            <a href="/" class="create-own-btn">@Model.ButtonText</a>
+        </a>
+    </div>
+</div>
+

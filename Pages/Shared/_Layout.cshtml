@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SweetTogether</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SweetTogether.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="page-wrapper d-flex flex-column min-vh-100">
+
+        <header class="header">
+            <div class="header-inner">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">SweetTogether</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            @{
+                                var currentPath = Context.Request.Path.ToString().ToLower();
+                                var showLanguageSwitcher = !currentPath.Contains("/card") && !currentPath.Contains("/privacy");
+                            }
+
+
+                            @if (showLanguageSwitcher)
+                            {
+                                <div class="language-switcher">
+                                    <button class="lang-btn" data-lang="en">EN</button>
+                                    <button class="lang-btn" data-lang="ru">RU</button>
+                                </div>
+                            }
+                    </div>
+                </div>
+            </nav>
+            </div>
+        </header>
+
+        <main role="main" class="flex-grow-1">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </main>      
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

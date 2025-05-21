@@ -1,0 +1,105 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "SweetTogether";
+}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<link rel="stylesheet" href="/css/style.css" />
+<script defer src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<div class="container">
+    <h1 class="title">SweetTogether ❤️</h1>
+
+    <label for="startDate">Start Date</label>
+    <input type="date" id="startDate" max="" onkeydown="return false;" />
+    <div class="name-inputs">
+        <input type="text" id="name1" placeholder="Name 1" />
+        <span class="heart"></span>
+        <input type="text" id="name2" placeholder="Name 2" />
+    </div>
+    <div class="card" id="cardBox">
+        <div id="cardContentToExport">          
+            <div class="card-content">               
+                <div class="names-display-wrapper">
+                    <h2 id="namesDisplay" class="names-display"></h2>
+                </div>
+                <div class="left-section">
+                    <img src="/img/mascot-stars.png" id="mascotImage" alt="mascots" />
+                    <p class="quote" id="quoteText">We've been shining together!</p>
+                </div>
+                <div class="photo-upload" id="photoUpload">
+                    <label for="photoInput" class="upload-label" id="plusSign">+</label>
+                    <input type="file" accept="image/*" id="photoInput" hidden />
+                    <label for="photoInput">
+                        <img id="photoPreview" src="" alt="Your photo" />
+                    </label>
+                 </div>
+                <p class="cute-fact-text" id="cuteFactText" style="display: none;"></p> 
+                <p class="watermark">SweetTogether 💖</p>
+            </div>            
+        </div> <!-- Закрываем cardContentToExport -->
+    </div>
+
+    <div class="controls-wrapper">
+        <div class="color-options">
+            <div class="color-circle" style="background-color: #fef3f3" data-color="#fef3f3"></div>
+            <div class="color-circle" style="background-color: #e0f7fa" data-color="#e0f7fa"></div>
+            <div class="color-circle" style="background-color: #f3e5f5" data-color="#f3e5f5"></div>
+            <div class="color-circle" style="background-color: #fff3e0" data-color="#fff3e0"></div>
+        </div>
+        <div class="button-group">
+            <div id="cuteFactWrapper" style="display: none;">
+                <button id="cuteFactToggle" class="cute-fact-btn">💡 Cute Fact</button>
+            </div>
+            <button id="downloadBtn">⬇ Download</button>
+            <button id="copyLinkBtn">🔗 Share</button>
+        </div>
+    </div>
+
+    <div class="mascot-select">
+        <h3>We’re like...</h3>
+        <div class="mascot-grid">
+            <button class="mascot-choice" data-mascot="stars" data-phrase="We've been shining together" data-label="Stars">
+                <img src="/img/mascot-stars.png" alt="Stars" />
+                <span class="mascot-label">Stars</span>
+            </button>
+            <button class="mascot-choice" data-mascot="birds" data-phrase="We've been flying together" data-label="Birds">
+                <img src="/img/mascot-birds.png" alt="Birds" />
+                <span class="mascot-label">Birds</span>
+            </button>
+            <button class="mascot-choice" data-mascot="bunnybear" data-phrase="We've been hugging together" data-label="Bunny Bear">
+                <img src="/img/mascot-bunnybear.png" alt="Bunny and Bear" />
+                <span class="mascot-label">Bunny Bear</span>
+            </button>
+            <button class="mascot-choice" data-mascot="cats" data-phrase="We've been purring together" data-label="Cats">
+                <img src="/img/mascot-cats.png" alt="Cats" />
+                <span class="mascot-label">Cats</span>
+            </button>
+            <button class="mascot-choice" data-mascot="clouds" data-phrase="We've been dreaming together" data-label="Clouds">
+                <img src="/img/mascot-clouds.png" alt="Clouds" />
+                <span class="mascot-label">Clouds</span>
+            </button>
+            <button class="mascot-choice" data-mascot="bees" data-phrase="We've been buzzing together" data-label="Bees">
+                <img src="/img/mascot-bees.png" alt="Bees" />
+                <span class="mascot-label">Bees</span>
+            </button>
+            <button class="mascot-choice" data-mascot="music" data-phrase="We've been vibing together" data-label="Music">
+                <img src="/img/mascot-music.png" alt="Music" />
+                <span class="mascot-label">Music</span>
+            </button>
+            <button class="mascot-choice" data-mascot="gamepads" data-phrase="We've been playing together" data-label="Gamepads">
+                <img src="/img/mascot-gamepads.png" alt="Gamepads" />
+                <span class="mascot-label">Gamepads</span>
+            </button>
+        </div>
+    </div>   
+    <div class="footer-links">
+        <p class="signature-line"><b>bsstepax</b></p>
+        <a href="/Privacy" class="footer-link" id="privacyFooterLink">Privacy Policy</a>    
+    </div>    
+</div>
+
+
+
+
