@@ -1,16 +1,19 @@
-# Используем официальный образ .NET SDK 8.0 для сборки
+# SDK-образ для сборки
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-WORKDIR /app
+# Копируем проект
+COPY ./SweetTogether ./SweetTogether
+WORKDIR /src/SweetTogether
 
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Публикуем
+RUN dotnet publish SweetTogether.csproj -c Release -o /app/publish
 
-# Используем официальный образ .NET ASP.NET для запуска
+# Runtime-образ для запуска
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=build /app/publish .
 
+# Запуск
 ENTRYPOINT ["dotnet", "SweetTogether.dll"]
 
