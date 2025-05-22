@@ -32,6 +32,13 @@ namespace SweetTogether.Pages
         public string ButtonText { get; set; }
         public void OnGet()
         {
+            Name1 = Uri.UnescapeDataString(Name1 ?? "");
+            Name2 = Uri.UnescapeDataString(Name2 ?? "");
+            DateText = Uri.UnescapeDataString(DateText ?? "");
+            Fact = Uri.UnescapeDataString(Fact ?? "");
+            Lang = Uri.UnescapeDataString(Lang ?? "");
+            Mascot = Uri.UnescapeDataString(Mascot ?? "");
+            Color = Uri.UnescapeDataString(Color ?? "");
             var phrases = new Dictionary<string, string>
     {
         { "stars", "shining" },

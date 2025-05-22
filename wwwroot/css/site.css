@@ -149,10 +149,6 @@ input[type="date"] {
     transition: transform 0.2s ease;
 }
 
-    .color-circle:hover {
-        transform: scale(1.1);
-    }
-
 .mascot-select {
     margin-top: 20px;
 }
@@ -165,8 +161,6 @@ input[type="date"] {
     margin-left: auto;
     margin-right: auto;
 }
-
-
 
 .mascot-choice {
     display: flex;
@@ -181,11 +175,7 @@ input[type="date"] {
     cursor: pointer;
     font-size: 0.9em;
     transition: transform 0.2s ease;
-}
-
-    .mascot-choice:hover {
-        transform: scale(1.05);
-    }
+}    
 
     .mascot-choice img {
         width: 40px;
@@ -228,10 +218,11 @@ input[type="date"] {
     border: 2px dashed #ccc;
     overflow: hidden;
 }
+
     .photo-upload.has-photo {
         border: 2px solid #613c1c;
         background-color: #fff;
-    }
+    } 
 
 .upload-label {
     font-size: 4em;
@@ -253,6 +244,7 @@ input[type="date"] {
     display: none;
     z-index: 0;
 }
+
 
 /* Поля ввода в строку */
 .name-inputs {
@@ -304,12 +296,7 @@ input[type="date"] {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-    .cute-fact-btn:hover {
-        background-color: #fbeeb0;
-        color: #444;
-    }
+}   
 
     .cute-fact-btn.active {
         background-color: #fff3a5;
@@ -390,12 +377,7 @@ input[type="date"] {
 .footer-link {
     color: #999;
     text-decoration: none;
-}
-
-    .footer-link:hover {
-        text-decoration: underline;
-        color: #666;
-    }
+}    
 
 #cuteFactText {
     background-color: #fff9d6;
@@ -460,6 +442,14 @@ input[type="date"] {
     margin-top: 30px;
     font-style: unset;
 }
+
+.button-group button:active,
+.create-own-btn:active,
+.cute-fact-btn:active {
+    transform: scale(0.97);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
    
 /* Адаптив для телефонов */
 @media (max-width: 767px) {
@@ -509,6 +499,48 @@ input[type="date"] {
         box-shadow: 0 0 8px 3px #ffe16e !important;
     }
 }
+
+@media (hover: hover) and (pointer: fine) {
+    .button-group button:hover {
+        background-color: #ffaec0;
+        color: #444;
+    }
+
+    .mascot-choice:hover {
+        transform: scale(1.05);
+    }
+
+    .color-circle:hover {
+        transform: scale(1.1);
+    }
+
+    .create-own-btn:hover {
+        background-color: #ff94aa;
+        color: #444;
+    }
+
+    .cute-fact-btn:hover {
+        background-color: #fbeeb0;
+        color: #444;
+    }
+
+    .cute-fact-btn.active:hover {
+        color: #444;
+        background-color: whitesmoke;
+        box-shadow: 0 0 0px 0px #ffe16e;
+    }
+
+    .cute-fact-text:hover {
+        transform: rotate(0deg) scale(1.02);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-link:hover {
+        text-decoration: underline;
+        color: #666;
+    }
+}
+
 
 @media (min-width: 768px) {
     .mascot-grid {        

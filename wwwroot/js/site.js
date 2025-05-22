@@ -233,7 +233,8 @@
 
         html2canvas(exportArea, {
             backgroundColor: window.getComputedStyle(cardBox).backgroundColor,
-            scale: 2
+            scale: 4,
+            useCORS: true
         }).then(canvas => {
             // 2. Возврат оригинального состояния
             photoUpload.style.display = originalDisplay;
@@ -419,6 +420,8 @@
         if (factText) {
             query.append("fact", factText);
         }
+
+
 
         const shareUrl = `${window.location.origin}/Card?${query.toString()}`;
 
